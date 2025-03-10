@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments -ajax</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background:  #150d0e;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .container {
+            background: #171515;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 90%;
+        }
+
+        h2 {
+            color: #b39ea2;
+            font-weight: bolder;
+            text-align: center;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .comment-card {
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(195deg, #e70b13, #1c1513);
+            box-shadow: 0px 4px 10px white;
+            padding: 20px;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .comment-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .comment-subtitle {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* .btn-custom {
+            background: #ff4081;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .btn-custom:hover {
+            background: #d81b60;
+        } */
+    </style>
+</head>
+
+<body>
+    
+    <div class="container bg-transparent">
+         <h2 class="p-3"> COMMENTS</h2>
+         <div id="result" class=""></div>
+    </div>
+</body>
+<script>
+    //ajax
+    //1, instance for the xmlhttprequest class
+    const http = new XMLHttpRequest()
+
+    //2, call open method
+    http.open('get', 'https://jsonplaceholder.typicode.com/comments')
+
+    //3, Send the request
+    http.send()                  //need to give body for  post and update, for 'get' we dont have to give
+
+    console.log(http.readyState);
+
+    http.onreadystatechange = () => {
+        console.log(http.readyState);
+
+        if (http.readyState == 4) {
+            console.log('data');
+            if (http.status >= 200 && http.status < 300) {
+                console.log('response');
+
+                let alltodos = JSON.parse(http.responseText)
+                console.log(alltodos);
+                
+                alltodos.forEach((item) => {
+                    result.innerHTML +=
+
+                  ` <div class="comment-card">
+                    <div class="comment-title">${item.id} . ${item.name}</div>
+                    <div class="comment-subtitle">${item.email}</div>
+                    <p>${item.body}</p>
+                    </div> `
+
+
+                })
+
+
+            }
+            else {
+                console.log('error');
+
+            }
+
+        }
+        else {
+            console.log('no data');
+
+        }
+
+    }
+</script>
+
+</html>

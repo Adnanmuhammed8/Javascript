@@ -1,0 +1,98 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+header{
+    background-image: url(https://www.isixsigma.com/wp-content/uploads/2018/11/shutterstock_110678570-scaled.jpg);
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+}
+
+
+#section {
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-container {
+    background: linear-gradient(to right,rgb(62, 60, 60),rgb(235, 168, 235));
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-container .form-group {
+    margin-bottom: 20px;
+}
+
+.login-container .btn-primary {
+    width: 100%;
+}
+
+.image-container {
+    max-width: 500px;
+    margin-right: 40px;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 992px) {
+    .image-container {
+        display: none;
+    }
+}
+
+/* home */
+.navbar {
+    position: absolute;
+    width: 100%;
+    background: transparent !important;
+    padding: 10px 20px;
+}
+.navbar-brand {
+    color: white;
+    font-weight: bold;
+    margin-left: 10px;
+}
+.logout-btn {
+    color: white;
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.logout-btn:hover {
+    background-color: white;
+    color: black;
+}
+.banner {
+    background: url('') no-repeat center center/cover;
+    height: 300px;
+    position: relative;
+    z-index: -1;
+}
+.content {
+    padding: 40px;
+    text-align: center;
+}
+.content h2 {
+    font-size: 36px;
+    font-weight: bold;
+   margin-top: 0px;
+}
+.content span {
+    color: red;
+}
